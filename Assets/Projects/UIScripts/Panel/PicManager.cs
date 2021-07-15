@@ -71,16 +71,4 @@ public class PicManager : MonoBehaviour
         }
         return true;
     }
-
-    /// <summary>
-    /// 核心公式
-    /// </summary>
-    /// <param name="CirclePoint">大图坐标</param>
-    /// <param name="r">感应半径</param>
-    /// <param name="point">小图坐标</param>
-    /// <returns></returns>
-    public static bool IsInCircle(Vector2 CirclePoint, float r, Vector2 point)
-    {
-        return Mathf.Sqrt((point.x - CirclePoint.x) * (point.x - CirclePoint.x) + (point.y - CirclePoint.y) * (point.y - CirclePoint.y)) < r;
-    }
 }

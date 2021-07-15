@@ -39,9 +39,6 @@ public class WaitPanel : BasePanel
     [Header("图片高")]
     public float PicHeight;
 
-    [Header("感应半径")]
-    public float R;
-
     //生成点位置
     public Vector2[] CreatPoint;
 
@@ -59,6 +56,7 @@ public class WaitPanel : BasePanel
         if (Config.Instance)
         {
             BackTime = Config.Instance.configData.Backtime;
+            CountDownStart();
         }
 
         if (PoolManager.Instance)
@@ -92,22 +90,6 @@ public class WaitPanel : BasePanel
         SmallPicGroup = FindTool.FindChildNode(transform, "SmallPicGroup");
     }
 
-    public override void InitEvent()
-    {
-        base.InitEvent();
-    }
-
-    public override void Open()
-    {
-        base.Open();      
-    }
-
-    public override void Hide()
-    {
-        base.Hide();
-        CountDownStart();
-    }
-
     /// <summary>
     /// 开启倒计时
     /// </summary>
@@ -115,15 +97,6 @@ public class WaitPanel : BasePanel
     {
         IsBack = true;
         Back_Time = BackTime;
-    }
-
-    /// <summary>
-    /// 关闭倒计时
-    /// </summary>
-    public void CountDownClose()
-    {
-        IsBack = false;
-        Back_Time = 0;
     }
 
     private void FixedUpdate()
@@ -154,25 +127,16 @@ public class WaitPanel : BasePanel
         if (Back_Time > 0 && IsBack)
         {
             Back_Time -= Time.deltaTime;
-
             if (Back_Time <= 0)
             {
-                IsBack = false;
                 GC.Collect();
-                UIState.SwitchPanel(PanelName.WaitPanel);
             }
-#if UNITY_STANDALONE_WIN
+
             //点击刷新倒计时
-            if (Input.GetMouseButton(0))
+            if (Input.touchCount > 0)
             {
                 Back_Time = BackTime;
             }
-#elif UNITY_ANDROID || UNITY_IOS || UNITY_IPHONE
-            if(Input.touchCount > 0)
-            {
-                Back_Time = BackTime;
-            }
-#endif
         }
     }
 }

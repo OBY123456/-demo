@@ -35,8 +35,6 @@ public class SmallPicItem : MonoBehaviour
 
     private List<GameObject> BigPicList = new List<GameObject>();
 
-    private float R;
-
     private float HeightMin, HeightMax;
 
     /// <summary>
@@ -70,8 +68,6 @@ public class SmallPicItem : MonoBehaviour
             HeightMin = -Screen.height / 2 - Heiht;
             HeightMax = Screen.height / 2 + Heiht;
         }
-        
-        R = UIManager.GetPanel<WaitPanel>(WindowTypeEnum.ForegroundScreen).R;
     }
 
     bool IsHave = false;
@@ -187,7 +183,7 @@ public class SmallPicItem : MonoBehaviour
     {
         foreach (var item in BigPicList)
         {
-            if(PicManager.IsInCircle(item.transform.localPosition,R,TarGetPos))
+            if(PoolManager.Instance.IsInRectangle(item.transform.localPosition,TarGetPos))
             {
                 return true;
             }
