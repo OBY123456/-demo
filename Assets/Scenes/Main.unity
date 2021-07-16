@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
@@ -322,7 +322,7 @@ Canvas:
   m_GameObject: {fileID: 75978456}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 719689703}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -345,7 +345,6 @@ GameObject:
   - component: {fileID: 719689704}
   - component: {fileID: 719689703}
   - component: {fileID: 719689702}
-  - component: {fileID: 719689705}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -417,30 +416,6 @@ Transform:
   m_Father: {fileID: 1765958830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &719689705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 719689701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e5768c36d1bb4acea50bd233372843a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Main Camera
-  basicEditor: 1
-  advancedProps: 0
-  hitProps: 0
-  hit3DObjects: 0
-  hit2DObjects: 0
-  hitWorldSpaceUI: 1
-  hitScreenSpaceUI: 0
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 256
-  useHitFilters: 0
 --- !u!1 &1686993289
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,9 +520,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   companyName: ZZYT
-  productName: MTframe
+  productName: ZhaoPianQiangDemo
   isOpenPrepose: 0
-  runInBackground: 0
+  runInBackground: 1
   dialogSetting: 0
 --- !u!114 &1765958829
 MonoBehaviour:
@@ -624,7 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4d6f385bcfd464c96e98377d1c7e3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsLog: 1
+  IsLog: 0
 --- !u!114 &1765958836
 MonoBehaviour:
   m_ObjectHideFlags: 0

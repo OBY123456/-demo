@@ -24,7 +24,7 @@ public class SoftwareSettingsTool : MainBehavior, ISerializeButton
     {
         if(Config.Instance)
         {
-            isOpenPrepose = Config.Instance.configData.isOpenPrepose;
+            isOpenPrepose = Config.Instance.configData.是否开启软件前置;
         }
     }
 

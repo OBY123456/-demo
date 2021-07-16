@@ -134,7 +134,6 @@ MonoBehaviour:
   MoveSpeed: 2
   PicWidth: 0
   PicHeight: 0
-  R: 300
   CreatPoint: []
 --- !u!1 &7357028364741210556
 GameObject:

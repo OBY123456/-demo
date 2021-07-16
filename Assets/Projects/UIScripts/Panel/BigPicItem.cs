@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using TouchScript.Gestures;
 using System;
 
 public class BigPicItem : MonoBehaviour
@@ -43,31 +42,8 @@ public class BigPicItem : MonoBehaviour
     {
         button = transform.GetChild(0).GetComponent<Button>();
         rawImage = transform.GetComponent<RawImage>();
-        GetComponent<PressGesture>().Pressed += pressHandler;
-        GetComponent<ReleaseGesture>().Released += releasdHandler;
-    }
-
-    private void releasdHandler(object sender, EventArgs e)
-    {
-        IsTouch = false;
-        finger = -1;
-        Pos1 = Vector2.zero;
-    }
-
-    private void pressHandler(object sender, EventArgs e)
-    {
-        Touch[] touches = Input.touches;
-
-        for (int i = 0; i < touches.Length; i++)
-        {
-            if (touches[i].phase == TouchPhase.Began)
-            {
-                finger = touches[i].fingerId;
-            }
-        }
-        IsFly = false;
-        Direction = Vector2.zero;
-        IsTouch = true;
+        //GetComponent<PressGesture>().Pressed += pressHandler;
+        //GetComponent<ReleaseGesture>().Released += releasdHandler;
     }
 
     private void Start()
@@ -85,7 +61,39 @@ public class BigPicItem : MonoBehaviour
             HeightMin = -Screen.height / 2 - BigPicHeight;
             HeightMax = Screen.height / 2 + BigPicHeight;
         }
+
+        if(Config.Instance)
+        {
+            AnimaTime = Config.Instance.configData.大图出现动画时间;
+            HideTime = Config.Instance.configData.大图自动消失时间;
+            SlideSpeed = Config.Instance.configData.手指滑动灵敏度;
+            FlySpeed = Config.Instance.configData.大图飞行速度;
+        }
     }
+
+    public void releasdHandler()
+    {
+        IsTouch = false;
+        finger = -1;
+        Pos1 = Vector2.zero;
+    }
+
+    public void pressHandler()
+    {
+        Touch[] touches = Input.touches;
+
+        for (int i = 0; i < touches.Length; i++)
+        {
+            if (touches[i].phase == TouchPhase.Began)
+            {
+                finger = touches[i].fingerId;
+            }
+        }
+        IsFly = false;
+        Direction = Vector2.zero;
+        IsTouch = true;
+    }
+
     //核心算法
     private void FixedUpdate()
     {
@@ -112,7 +120,9 @@ public class BigPicItem : MonoBehaviour
                 }
             }
             Pos1 = touch.position;
-            if(Pos1!=Pos2 && Pos1!=Vector2.zero && Pos2 != Vector2.zero)
+            transform.position = touch.position;
+            
+            if (Pos1!=Pos2 && Pos1!=Vector2.zero && Pos2 != Vector2.zero)
             {
                 Vector2 vector2 = Pos1 - Pos2;
                 if (Mathf.Abs(vector2.x) > SlideSpeed)

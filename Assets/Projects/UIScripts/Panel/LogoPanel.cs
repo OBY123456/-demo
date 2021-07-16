@@ -20,7 +20,7 @@ public class LogoPanel : BasePanel
         base.Open();
         if(Config.Instance)
         {
-            if(Password.Contains(Config.Instance.configData.Password))
+            if(Password.Contains(Config.Instance.configData.去水印码))
             {
                 Hide();
             }

@@ -56,7 +56,7 @@ public class UIState : BaseState
             switch (panelName)
             {
                 case PanelName.WaitPanel:
-                    CurrentTask.ChangeTask(new UdpTask(this));
+                    CurrentTask.ChangeTask(new WaitTask(this));
                     break;
                 case PanelName.LogoPanel:
                     CurrentTask.ChangeTask(new LogoTask(this));

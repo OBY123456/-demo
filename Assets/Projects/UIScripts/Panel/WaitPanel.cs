@@ -55,7 +55,10 @@ public class WaitPanel : BasePanel
         base.Start();
         if (Config.Instance)
         {
-            BackTime = Config.Instance.configData.Backtime;
+            BackTime = Config.Instance.configData.定时调用GC;
+            MoveSpeed = Config.Instance.configData.小图移动速度;
+            Interval_row = Config.Instance.configData.小图行间隔;
+            interval_column = Config.Instance.configData.小图列间隔;
             CountDownStart();
         }
 

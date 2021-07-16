@@ -42,7 +42,7 @@ public class Main : MonoBehaviour
 
 #if UNITY_STANDALONE_WIN
         if(Config.Instance)
-        Cursor.visible = Config.Instance.configData.isCursor;
+        Cursor.visible = Config.Instance.configData.是否显示鼠标;
 #endif
         //在这里更改场景入口
         StateManager.ChangeState(new UIState());

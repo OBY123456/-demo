@@ -5,25 +5,27 @@ using Newtonsoft.Json;
 
 public class ConfigData
 {
-    /// <summary>
-    /// 返回待机页时间
-    /// </summary>
-    public int Backtime;
+    public int 定时调用GC;
 
-    /// <summary>
-    /// 是否显示鼠标
-    /// </summary>
-    public bool isCursor;
+    public bool 是否显示鼠标;
 
-    /// <summary>
-    /// 是否开启软件前置
-    /// </summary>
-    public bool isOpenPrepose;
+    public bool 是否开启软件前置;
 
-    /// <summary>
-    /// 加密码
-    /// </summary>
-    public string Password;
+    public string 去水印码;
+
+    public float 大图自动消失时间;
+
+    public float 手指滑动灵敏度;
+
+    public float 大图飞行速度;
+
+    public float 大图出现动画时间;
+
+    public float 小图移动速度;
+
+    public float 小图行间隔;
+
+    public float 小图列间隔;
 }
 
 

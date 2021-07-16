@@ -65,8 +65,8 @@ public class SmallPicItem : MonoBehaviour
         if(PoolManager.Instance)
         {
             Heiht = PoolManager.Instance.SmallPicPrefabs.GetComponent<RectTransform>().sizeDelta.y;
-            HeightMin = -Screen.height / 2 - Heiht;
-            HeightMax = Screen.height / 2 + Heiht;
+            HeightMin = -Screen.height / 2 - Heiht /2;
+            HeightMax = Screen.height / 2 + Heiht /2;
         }
     }
 
